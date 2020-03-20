@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shopping.mapper.JotterArticleMapper">
+  <resultMap id="BaseResultMap" type="com.example.shopping.mypojo.JotterArticle">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_abstract" jdbcType="VARCHAR" property="articleAbstract" />
+    <result column="article_cover" jdbcType="VARCHAR" property="articleCover" />
+    <result column="article_date" jdbcType="TIMESTAMP" property="articleDate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.example.shopping.mypojo.JotterArticleWithBLOBs">
+    <result column="article_content_html" jdbcType="LONGVARCHAR" property="articleContentHtml" />
+    <result column="article_content_md" jdbcType="LONGVARCHAR" property="articleContentMd" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, article_title, article_abstract, article_cover, article_date
+  </sql>
+  <sql id="Blob_Column_List">
+    article_content_html, article_content_md
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jotter_article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jotter_article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.shopping.mypojo.JotterArticleWithBLOBs">
+    insert into jotter_article (id, article_title, article_abstract, 
+      article_cover, article_date, article_content_html, 
+      article_content_md)
+    values (#{id,jdbcType=INTEGER}, #{articleTitle,jdbcType=VARCHAR}, #{articleAbstract,jdbcType=VARCHAR}, 
+      #{articleCover,jdbcType=VARCHAR}, #{articleDate,jdbcType=TIMESTAMP}, #{articleContentHtml,jdbcType=LONGVARCHAR}, 
+      #{articleContentMd,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.shopping.mypojo.JotterArticleWithBLOBs">
+    insert into jotter_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="articleAbstract != null">
+        article_abstract,
+      </if>
+      <if test="articleCover != null">
+        article_cover,
+      </if>
+      <if test="articleDate != null">
+        article_date,
+      </if>
+      <if test="articleContentHtml != null">
+        article_content_html,
+      </if>
+      <if test="articleContentMd != null">
+        article_content_md,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitle != null">
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null">
+        #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCover != null">
+        #{articleCover,jdbcType=VARCHAR},
+      </if>
+      <if test="articleDate != null">
+        #{articleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleContentHtml != null">
+        #{articleContentHtml,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleContentMd != null">
+        #{articleContentMd,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.shopping.mypojo.JotterArticleWithBLOBs">
+    update jotter_article
+    <set>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null">
+        article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCover != null">
+        article_cover = #{articleCover,jdbcType=VARCHAR},
+      </if>
+      <if test="articleDate != null">
+        article_date = #{articleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleContentHtml != null">
+        article_content_html = #{articleContentHtml,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleContentMd != null">
+        article_content_md = #{articleContentMd,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.example.shopping.mypojo.JotterArticleWithBLOBs">
+    update jotter_article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_cover = #{articleCover,jdbcType=VARCHAR},
+      article_date = #{articleDate,jdbcType=TIMESTAMP},
+      article_content_html = #{articleContentHtml,jdbcType=LONGVARCHAR},
+      article_content_md = #{articleContentMd,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.shopping.mypojo.JotterArticle">
+    update jotter_article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_cover = #{articleCover,jdbcType=VARCHAR},
+      article_date = #{articleDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
