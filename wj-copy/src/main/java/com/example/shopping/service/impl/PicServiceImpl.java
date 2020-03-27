@@ -24,7 +24,7 @@ public class PicServiceImpl implements PicService {
     private String host;
     @Value("${ftpclient.port}")
     private int port;
-    @Value("${ftpclient.ftpPort}")
+    @Value("${ftpclient.port}")
     private int ftpPort;
     @Value("${ftpclient.username}")
     private String username;

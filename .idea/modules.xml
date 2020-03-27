@@ -4,10 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpuser/httpuser.iml" filepath="$PROJECT_DIR$/httpuser/httpuser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/httpuser/httpuser.iml" filepath="$PROJECT_DIR$/httpuser/httpuser.iml" />
       <module fileurl="file://$PROJECT_DIR$/miswang.iml" filepath="$PROJECT_DIR$/miswang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisgenerate/mybatisgenerate.iml" filepath="$PROJECT_DIR$/mybatisgenerate/mybatisgenerate.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisgenerate/mybatisgenerate.iml" filepath="$PROJECT_DIR$/mybatisgenerate/mybatisgenerate.iml" />
       <module fileurl="file://$PROJECT_DIR$/passport/passport.iml" filepath="$PROJECT_DIR$/passport/passport.iml" />
       <module fileurl="file://$PROJECT_DIR$/provideruser/provideruser.iml" filepath="$PROJECT_DIR$/provideruser/provideruser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provideruser/provideruser.iml" filepath="$PROJECT_DIR$/provideruser/provideruser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wj-copy/wj.iml" filepath="$PROJECT_DIR$/wj-copy/wj.iml" />
       <module fileurl="file://$PROJECT_DIR$/wj-copy/wj.iml" filepath="$PROJECT_DIR$/wj-copy/wj.iml" />
     </modules>
   </component>
